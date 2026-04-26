@@ -5,8 +5,9 @@ from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 
-load_dotenv()
 logging.basicConfig(level=logging.INFO)
+
+load_dotenv()
 
 api = os.getenv('api_key')
 bot = Bot(token=api)
