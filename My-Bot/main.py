@@ -4,6 +4,7 @@ import logging
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
+import texts
 
 logging.basicConfig(
     level=logging.INFO, filename="logs.log", filemode="a", 
@@ -19,7 +20,7 @@ dp = Dispatcher(storage=MemoryStorage())
 @dp.message()
 async def check_message(message):
     print(f"Getting message: {message.text}")
-    await message.answer(f"Hi, Your message is: {message.text}")
+    await message.answer(texts.hello)
 
 @dp.callback_query()
 async def check_callback_query(call):
