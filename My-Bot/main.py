@@ -16,6 +16,14 @@ api = os.getenv('api_key')
 bot = Bot(token=api)
 dp = Dispatcher(storage=MemoryStorage())
 
+@dp.message()
+async def check_message(message):
+    print(f"Getting message: {message}")
+
+@dp.callback_query()
+async def check_callback_query(call):
+    print(f"Test-01: {call}")
+
 async def main():
     await dp.start_polling(bot)
 
