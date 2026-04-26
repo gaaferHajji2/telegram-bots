@@ -18,11 +18,13 @@ dp = Dispatcher(storage=MemoryStorage())
 
 @dp.message()
 async def check_message(message):
-    print(f"Getting message: {message}")
+    print(f"Getting message: {message.text}")
+    await message.answer(f"Hi, Your message is: {message.text}")
 
 @dp.callback_query()
 async def check_callback_query(call):
-    print(f"Test-01: {call}")
+    # print(f"Test-01: {call}")
+    pass
 
 async def main():
     await dp.start_polling(bot)
