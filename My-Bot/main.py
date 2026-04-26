@@ -5,7 +5,10 @@ from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO, filename="logs.log", filemode="a", 
+    format="%(asctime)s %(levelname)s %(message)s"
+)
 
 load_dotenv()
 
