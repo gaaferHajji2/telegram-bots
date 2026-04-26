@@ -2,7 +2,7 @@ import os
 import asyncio
 import logging
 from dotenv import load_dotenv
-from aiogram import Bot, Dispatcher
+from aiogram import Bot, Dispatcher, F
 from aiogram.fsm.storage.memory import MemoryStorage
 import texts
 
@@ -17,9 +17,17 @@ api = os.getenv('api_key')
 bot = Bot(token=api)
 dp = Dispatcher(storage=MemoryStorage())
 
+# Here we should organize the messages with filters first
+@dp.message(F.text == 'Hello')
+async def check_hello(message):
+    await message.answer(texts.say_hello)
+
+# If we set this handler first, then it will capture all messages.
 @dp.message()
 async def check_message(message):
     print(f"Getting message: {message.text}")
+    # the answer method must be shorter than 1024 characters. 
+    # This limitation is related to the Telegram API.
     await message.answer(texts.hello)
 
 @dp.callback_query()
