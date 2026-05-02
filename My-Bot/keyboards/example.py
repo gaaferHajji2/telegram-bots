@@ -4,4 +4,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 # Each inner list represents a single row. For example, the first list contains all buttons 
 # for row 1, the second list for row 2, and so on.
 
-menu = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text="Information")]])
+menu = ReplyKeyboardMarkup(keyboard=[
+    [ KeyboardButton(text="Information") ], 
+    [ KeyboardButton(text="Add Number"), KeyboardButton(text="Delete Number")]
+])
