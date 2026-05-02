@@ -24,7 +24,7 @@ dp = Dispatcher(storage=MemoryStorage())
 async def check_hello(message):
     await message.answer(texts.say_hello)
 
-@dp.message(F.text == 'Infromation')
+@dp.message(F.text == 'Information')
 async def get_information(message):
     await message.answer("You can find all the necessary information on our website")
 
