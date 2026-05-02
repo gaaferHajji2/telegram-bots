@@ -7,4 +7,4 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 menu = ReplyKeyboardMarkup(keyboard=[
     [ KeyboardButton(text="Information") ], 
     [ KeyboardButton(text="Add Number"), KeyboardButton(text="Delete Number")]
-], resize_keyboard=True)
+], resize_keyboard=True, input_field_placeholder="JLoka Option To Verifying...")
