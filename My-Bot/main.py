@@ -11,13 +11,11 @@ logging.basicConfig(
     level=logging.INFO, filename='logs.log', filemode='a', 
     format='%(asctime)s %(levelname)s %(message)s'
 )
-
 load_dotenv()
 
 api = os.getenv('api_key')
 bot = Bot(token=api)
 dp = Dispatcher(storage=MemoryStorage())
-
 """
 A one-time keyboard displays its buttons only once. This is controlled by 
 the `one_time_keyboard` argument, which accepts a boolean value (default is `False`). 
@@ -55,7 +53,6 @@ async def get_languages(message):
 @dp.callback_query(F.data == "Jafar Loka")
 async def get_my_name(message):
     await message.answer("My Name is Jafar Loka.\nI am ITE Engineer & QA Tester")
-
 
 # If we set this handler first, then it will capture all messages.
 @dp.message()
