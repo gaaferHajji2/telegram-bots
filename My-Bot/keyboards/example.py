@@ -1,4 +1,4 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 
 #The keyboard argument in ReplyKeyboardMarkup accepts a matrix of buttons (a list of lists). 
 # Each inner list represents a single row. For example, the first list contains all buttons 
@@ -13,3 +13,10 @@ menu = ReplyKeyboardMarkup(
     input_field_placeholder="JLoka Option To Verifying...", 
     one_time_keyboard=True
 )
+
+inline_kb = InlineKeyboardMarkup(inline_keyboard=[
+    [
+        InlineKeyboardButton(text="Your Language", callback_data="Russian/English/Arabic"), 
+        InlineKeyboardButton(text="Your Name", callback_data="Jafar Loka")
+    ]
+])
