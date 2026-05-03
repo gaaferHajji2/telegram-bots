@@ -4,7 +4,7 @@ import logging
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, F
 from aiogram.fsm.storage.memory import MemoryStorage
-from keyboards.example import menu
+from keyboards.example import menu, inline_kb
 import texts
 
 logging.basicConfig(
@@ -43,6 +43,10 @@ async def check_hello(message):
 @dp.message(F.text == 'Information')
 async def get_information(message):
     await message.answer("You can find all the necessary information on our website")
+
+@dp.message(F.text == "Inline")
+async def get_inline_kb(message):
+    await message.answer("Yoy request inline keyboard", reply_markup=inline_kb)
 
 # If we set this handler first, then it will capture all messages.
 @dp.message()
