@@ -48,6 +48,15 @@ async def get_information(message):
 async def get_inline_kb(message):
     await message.answer("Yoy request inline keyboard", reply_markup=inline_kb)
 
+@dp.callback_query(F.data == 'Russian/English/Arabic')
+async def get_languages(message):
+    await message.answer("My Languages are: \n1. Russian\n2. Arabic\n3. English")
+
+@dp.callback_query(F.data == "Jafar Loka")
+async def get_my_name(message):
+    await message.answer("My Name is Jafar Loka.\nI am ITE Engineer & QA Tester")
+
+
 # If we set this handler first, then it will capture all messages.
 @dp.message()
 async def check_message(message):
