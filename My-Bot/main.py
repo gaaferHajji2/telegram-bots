@@ -4,7 +4,6 @@ from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from handlers.message_handler import router as message_router
 from handlers.callback_handler import router as callback_handler_router
-import config
 
 api = os.getenv('api_key')
 bot = Bot(token=api)
