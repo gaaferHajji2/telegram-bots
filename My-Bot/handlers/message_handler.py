@@ -15,7 +15,7 @@ async def get_information(message):
 
 @router.message(F.text == "Inline")
 async def get_inline_kb(message):
-    await message.answer("Yoy request inline keyboard", reply_markup=inline_kb)
+    await message.answer("You request inline keyboard", reply_markup=inline_kb)
 
 # If we set this handler first, then it will capture all messages.
 @router.message()
