@@ -4,8 +4,13 @@ from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from handlers.message_handler import router as message_router
 from handlers.callback_handler import router as callback_handler_router
+from handlers.admin_handler import router as admin_router
+from dotenv import load_dotenv
+
+load_dotenv()
 
 api = os.getenv('api_key')
+print(f"The api key is: {api}")
 bot = Bot(token=api)
 dp = Dispatcher(storage=MemoryStorage())
 """
@@ -26,7 +31,7 @@ This helps maintain a cleaner interface during active text input.
 """
 
 async def main():
-    dp.include_routers(message_router, callback_handler_router)
+    dp.include_routers(admin_router, message_router, callback_handler_router)
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
