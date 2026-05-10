@@ -39,6 +39,7 @@ menu = ReplyKeyboardMarkup(
 inline_kb = InlineKeyboardMarkup(inline_keyboard=[
     [
         InlineKeyboardButton(text="Your Language", callback_data="Russian/English/Arabic"), 
-        InlineKeyboardButton(text="Your Name", callback_data="Jafar Loka")
+        InlineKeyboardButton(text="Your Name", callback_data="Jafar Loka"),
+        InlineKeyboardButton(text="Information", callback_data="Information")
     ]
 ])
