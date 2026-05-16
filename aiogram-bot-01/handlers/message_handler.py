@@ -28,6 +28,15 @@ async def get_url_image(message):
     img = URLInputFile('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2G6bAmQHdOrFPYKaqpmR0E7i3qWq93Idw7w&s')
     await message.answer_photo(img, caption="Test Image with URL")
 
+@router.message(F.text == 'File')
+async def get_file(message):
+    file = FSInputFile('file/jloka.txt')
+    # we have also:
+        # 1--> answer_video
+        # 2--> answer_animation
+        # 3--> answer_video_note
+    await message.answer_document(file)
+
 # If we set this handler first, then it will capture all messages.
 @router.message()
 async def check_message(message):
