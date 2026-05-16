@@ -30,12 +30,12 @@ async def get_url_image(message):
 
 @router.message(F.text == 'File')
 async def get_file(message):
-    file = FSInputFile('file/jloka.txt')
+    file = FSInputFile('files/jloka.txt')
     # we have also:
         # 1--> answer_video
         # 2--> answer_animation
         # 3--> answer_video_note
-    await message.answer_document(file)
+    await message.answer_document(document=file, caption="📄 Here is your text file!")
 
 # If we set this handler first, then it will capture all messages.
 @router.message()
