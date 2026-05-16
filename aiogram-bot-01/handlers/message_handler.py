@@ -21,12 +21,12 @@ async def get_inline_kb(message):
 @router.message(F.text == 'Image')
 async def get_image(message):
     img = FSInputFile('files/images.png')
-    await message.answer_photo(img, 1)
+    await message.answer_photo(img, caption="Test Image")
 
 @router.message(F.text == 'URL Image')
 async def get_url_image(message):
     img = URLInputFile('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2G6bAmQHdOrFPYKaqpmR0E7i3qWq93Idw7w&s')
-    await message.answer_photo(img, 1)
+    await message.answer_photo(img, caption="Test Image with URL")
 
 # If we set this handler first, then it will capture all messages.
 @router.message()
