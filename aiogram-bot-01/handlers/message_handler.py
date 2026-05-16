@@ -1,4 +1,5 @@
 from aiogram import F, Router
+from aiogram.types import FSInputFile, URLInputFile
 from keyboards.example import inline_kb, menu
 import texts
 
@@ -16,6 +17,16 @@ async def get_information(message):
 @router.message(F.text == "Inline")
 async def get_inline_kb(message):
     await message.answer("You request inline keyboard", reply_markup=inline_kb)
+
+@router.message(F.text == 'Image')
+async def get_image(message):
+    img = FSInputFile('files/images.png')
+    await message.answer_photo(img, 'Check this image')
+
+@router.message(F.text == 'URL Image')
+async def get_url_image(message):
+    img = URLInputFile('https://zelenyimir.ru/wp-content/uploads/2023/03/moree.jpg')
+    await message.answer_photo(img, 'Check this url message')
 
 # If we set this handler first, then it will capture all messages.
 @router.message()
