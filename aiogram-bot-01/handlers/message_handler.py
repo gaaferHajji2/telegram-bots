@@ -32,9 +32,11 @@ async def get_url_image(message):
 async def get_file(message):
     file = FSInputFile('files/jloka.txt')
     # we have also:
-        # 1--> answer_video
-        # 2--> answer_animation
-        # 3--> answer_video_note
+        # 1--> answer_video.
+        # 2--> answer_animation.
+        # 3--> answer_video_note.
+        # 4--> In the same way, you can send other, 
+        # less frequently used data types such as: audio, stickers, polls, and more
     await message.answer_document(document=file, caption="📄 Here is your text file!")
 
 # If we set this handler first, then it will capture all messages.
