@@ -10,4 +10,4 @@ The file_id can be used to resend the image.
 @router.message(F.photo)
 async def get_message_01(message):
     file_id = message.photo[-1].file_id
-    await message.answer_photo(file_id, caption="You send image file")
+    await message.answer_photo(file_id, caption="You send an image file")
