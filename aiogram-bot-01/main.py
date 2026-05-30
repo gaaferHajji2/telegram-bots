@@ -12,7 +12,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 api = os.getenv('api_key')
-print(f"The api key is: {api}")
 bot = Bot(token=api)
 dp = Dispatcher(storage=MemoryStorage())
 """
