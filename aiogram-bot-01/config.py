@@ -9,3 +9,4 @@ logging.basicConfig(
 load_dotenv()
 
 username = os.environ.get('username', 'None')
+print(f'username is: {os.environ.get('bot_username', 'None')}')
