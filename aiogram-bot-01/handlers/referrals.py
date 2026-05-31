@@ -1,7 +1,7 @@
 from aiogram import Router
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
-import handlers.config as config
+import config
 
 router = Router()
 users = {}
