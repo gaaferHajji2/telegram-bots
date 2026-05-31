@@ -1,1 +1,0 @@
-username = 'j_loka_01_bot'
