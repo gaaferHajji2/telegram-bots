@@ -1,6 +1,7 @@
-from aiogram import Router, F
-from aiogram.filters import CommandStart
+from aiogram import Router
+from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
+import handlers.config as config
 
 router = Router()
 users = {}
@@ -35,3 +36,15 @@ async def cmd_start(message: Message):
             await message.answer(f"You were referred by user ID: {ref_id}")
         except Exception as e:
             print(f"Error processing referral: {e}")
+
+@router.message(Command('ref'))
+async def ref(message):
+    user_id = str(message.from_user.id)
+    
+    if user_id not in users:
+        users[user_id] = []
+
+    await message.answer("Hello, please wait...")
+    await message.answer(f'''⚙️ You have opened the employee personal account
+🔗 Your unique link: https://t.me/{config.username}?start={user_id}
+👥 Invited users: {len(users[user_id])}''')
