@@ -15,15 +15,15 @@ async def get_my_name(call):
     await call.message.answer("This test information message")
     await call.answer("My Name is Jafar Loka.\nI am ITE Engineer & QA Tester", show_alert=True)
 
-@router.message(F.data == 'menu')
+@router.callback_query(F.data == 'menu')
 async def menu_func(call):
     await call.message.answer('Thanks For Using Menu')
 
-@router.message(F.data == 'get_present')
+@router.callback_query(F.data == 'get_present')
 async def menu_func(call):
     await call.message.answer('Thanks For Using Get Present')
 
 @router.callback_query()
 async def func(call):
-    await call.message.answer('Thank you for clicking')
+    await call.message.answer(f'Thank you for clicking: {F.data}')
 
