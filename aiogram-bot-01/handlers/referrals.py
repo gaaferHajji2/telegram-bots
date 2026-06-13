@@ -55,7 +55,7 @@ async def ref(message):
 async def start(message):
     img = FSInputFile('files/media/start.jpg')
     await message.answer_photo(img, reply_markup=keyboards.start.menu)
-    await asyncio.sleep(30)
+    await asyncio.sleep(10)
     await message.answer(f'''Glad to see you😊.
 Three times a week, useful content will arrive. In the form of articles, short lessons, prompts, and collections of neural networks for different professions.
 And meanwhile, here is a small gift from me in the form of guides on working''', reply_markup=keyboards.start.present)
