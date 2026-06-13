@@ -19,3 +19,11 @@ async def get_my_name(call):
 async def func(call):
     await call.message.answer('Thank you for clicking')
     await call.answer()
+
+@router.message(F.data == 'menu')
+async def menu_func(call):
+    await call.message.answer('Thanks For Using Menu')
+
+@router.message(F.data == 'get_present')
+async def menu_func(call):
+    await call.message.answer('Thanks For Using Get Present')
