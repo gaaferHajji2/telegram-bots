@@ -3,7 +3,7 @@ from aiogram import Router
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, FSInputFile
 import config
-import keyboards
+from keyboards.start import menu, present
 
 router = Router()
 users = {}
@@ -53,9 +53,9 @@ async def ref(message):
 
 @router.message(Command('gift'))
 async def start(message):
-    img = FSInputFile('files/media/start.jpg')
-    await message.answer_photo(img, reply_markup=keyboards.start.menu)
+    img = FSInputFile('files/images.png')
+    await message.answer_photo(img, reply_markup=menu)
     await asyncio.sleep(10)
     await message.answer(f'''Glad to see you😊.
 Three times a week, useful content will arrive. In the form of articles, short lessons, prompts, and collections of neural networks for different professions.
-And meanwhile, here is a small gift from me in the form of guides on working''', reply_markup=keyboards.start.present)
+And meanwhile, here is a small gift from me in the form of guides on working''', reply_markup=present)
