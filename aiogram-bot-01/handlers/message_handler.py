@@ -2,6 +2,7 @@ from aiogram import F, Router
 from aiogram.types import FSInputFile, URLInputFile
 from keyboards.example import inline_kb, menu
 import texts
+from states.state_sample import DialogBot
 
 router = Router()
 
@@ -38,6 +39,23 @@ async def get_file(message):
         # 4--> In the same way, you can send other, 
         # less frequently used data types such as: audio, stickers, polls, and more
     await message.answer_document(document=file, caption="📄 Here is your text file!")
+
+@router.message(F.text == 'step', DialogBot.step1)
+async def set_state(message, state):
+    await state.set_state(DialogBot.step2)
+    await state.update_data(num2=2025)
+    await message.answer("Step2 has been saved")
+
+@router.message(F.text == 'step', DialogBot.step2)
+async def set_state(message, state):
+    await message.answer(f"Step3 Data is: {state.get_data()}")
+    await state.clear()
+
+@router.message(F.text == 'step')
+async def set_state(message, state):
+    await state.set_state(DialogBot.step1)
+    await state.update_data(num1=2026)
+    await message.answer("Step1 has been saved")
 
 # If we set this handler first, then it will capture all messages.
 @router.message()
