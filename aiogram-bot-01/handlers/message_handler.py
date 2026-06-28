@@ -48,7 +48,7 @@ async def set_state(message, state):
 
 @router.message(F.text == 'step', DialogBot.step2)
 async def set_state(message, state):
-    await message.answer(f"Step3 Data is: {state.get_data()}")
+    await message.answer(f"Step3 Data is: {await state.get_data()}")
     await state.clear()
 
 @router.message(F.text == 'step')
